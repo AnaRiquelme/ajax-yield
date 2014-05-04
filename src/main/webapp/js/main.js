@@ -219,6 +219,25 @@ var vista = function(objeto, ContextPath) {
 
             return tabla;
         },
+        
+        getFiltroBotonera:function() {
+            
+            filtro = objeto.getFieldNames();
+            
+            botoneraFiltro = "<legend>Filtro</legend> <form class=\"navbar-form pull-right\" action=\"Controller\" method=\"post\" id=\"empresaForm\"><fieldset><span><select id=\"selectFilter\" name=\"filter\" width=\"80\" style=\"width: 100px\">";
+        
+            $.each(filtro, function(indice, valor){
+                botoneraFiltro += '<option value="' + valor + '">'+ valor + '</option>';
+            });
+            
+            botoneraFiltro += "</select></span><span><select id=\"selectFilteroperator\" name=\"filteroperator\" width=\"80\" style=\"width: 100px\"><option>like</option><option>notlike</option><option>equals</option><option>notequalto</option><option>less</option><option>lessorequal</option><option>greater</option><option>greaterorequal</option></select<input id=\"inputFiltervalue\" name=\"filtervalue\" type=\"text\" size=\"20\" maxlength=\"50\" value=\"\"  width=\"100\" style=\"width: 90px\"/></span><span><input type=\"submit\" class=\"btn\" id=\"btnFiltrar\" name=\"btnFiltrar\" value=\"Filtrar\" /></span></fieldset></form></div><div class=\"text-right\"><legend>Registros por página</legend> <form class=\"navbar-form pull-right\" action=\"Controller\" method=\"post\" id=\"nrrpForm\" ><fieldset><span><select  id=\"rpp\" name=\"nrpp\" value=\"select\" style=\"width: 80px\"><option>5</option><option selected>10</option><option>20</option><option>50</option><option>100</option></select></span></fieldset></form>";
+        
+            
+            console.log(botoneraFiltro);
+            return botoneraFiltro;
+        },
+        
+        
         getObjectTable: function(id) {
             cabecera = objeto.getPrettyFieldNames();
             datos = objeto.getOne(id);

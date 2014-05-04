@@ -9,6 +9,7 @@ var control_actividad_list = function(path) {
 
     var prefijo_div = "#actividad_list ";
 
+   
     function cargaBotoneraMantenimiento() {
         var botonera = [
             {"class": "btn btn-mini action01", "icon": "icon-eye-open", "text": ""},
@@ -237,6 +238,9 @@ var control_actividad_list = function(path) {
                     loadModalForm(view, prefijo_div + '#modal01', $(this).attr('id'));
                 });
             }
+            //botonera
+            
+            $(prefijo_div + '#amigo').empty().append(view.getFiltroBotonera());
 
             //asignación del evento de filtrado al boton
 

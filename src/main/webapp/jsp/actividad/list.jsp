@@ -25,7 +25,7 @@
                 <div id="pagination"></div>
             </div>
             <div class="span5">
-                <div class="text-right">
+                <div id="amigo" class="text-right">
                     <legend>Filtro</legend> 
                     <form class="navbar-form pull-right" action="Controller" method="post" id="empresaForm">
                         <fieldset>                                                                     
