@@ -21,6 +21,7 @@
                 <div id="order"></div>
                 <div id="filter"></div>            
                 <div id="registers"></div>
+                <div id="fields"></div>
                 <div id="pagination"></div>
             </div>
             <div class="span5">

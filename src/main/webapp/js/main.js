@@ -314,6 +314,10 @@ var vista = function(objeto, ContextPath) {
             regs = this.getObject().getRegisters(filter, filteroperator, filtervalue, systemfilter, systemfilteroperator, systemfiltervalue);
             return "<p>Mostrando una consulta de " + regs + " registros.</p>";
         },
+        getFieldsInfo: function() {
+            fields = this.getObject().getCountFields();
+            return "<p>Mostrando una consulta de " + fields + " campos.</p>";
+        },
         getOrderInfo: function(order, ordervalue) {
             if (order) {
                 strOrder = "<p>Contenido ordenado por " + order + " (" + ordervalue + ') <a href="#" id="linkQuitarOrden">(Quitar orden)</a></p>';

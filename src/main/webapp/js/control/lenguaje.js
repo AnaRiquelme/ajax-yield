@@ -134,6 +134,10 @@ var control_lenguaje_list = function(path) {
 
             $(prefijo_div + "#registers").empty().append(view.getLoading()).html(view.getRegistersInfo(filter, filteroperator, filtervalue, systemfilter, systemfilteroperator, systemfiltervalue));
 
+            //muestra la frase con el número de campos de la consulta
+
+            $(prefijo_div + "#fields").empty().append(view.getLoading()).html(view.getFieldsInfo());
+
             //muestra la frase de estado de la ordenación de la tabla
 
             $(prefijo_div + "#order").empty().append(view.getLoading()).html(view.getOrderInfo(order, ordervalue));
