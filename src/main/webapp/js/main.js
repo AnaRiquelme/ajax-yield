@@ -170,7 +170,7 @@ var vista = function(objeto, ContextPath) {
 
             page = objeto.getPage(pag, order, ordervalue, rpp, filter, filteroperator, filtervalue, systemfilter, systemfilteroperator, systemfiltervalue)['list'];
             if (page != 0) {
-
+//hola tal y tal
                 $.each(page, function(index, value) {
                     tabla += '<tr>';
 

@@ -266,7 +266,7 @@ var control_empresa_list = function(path) {
 
             var thisObject = this;
 
-            //controlar que no estemos en una página fuera de órbita
+            //controlar que no estemos en una página que no existe
 
             if (parseInt(pag) > parseInt(view.getObject().getPages(rpp, filter, filteroperator, filtervalue))) {
                 pag = view.getObject().getPages(rpp, filter, filteroperator, filtervalue);
