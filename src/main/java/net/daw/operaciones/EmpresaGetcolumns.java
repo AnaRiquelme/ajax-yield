@@ -24,8 +24,14 @@ public class EmpresaGetcolumns implements GenericOperation{
         //trabajando en la rama cpp
         ArrayList<String> alColumns = null;
         try {
+            int cpp;
+            if(request.getParameter("cpp") == null){
+                cpp = 2;
+            } else {
+                cpp = Integer.parseInt(request.getParameter("cpp"));
+            }
             EmpresaDao oEmpresaDAO = new EmpresaDao(Conexion.getConection());
-            alColumns = oEmpresaDAO.getColumnsNames();
+            alColumns = oEmpresaDAO.getColumnsNames(cpp);
             String data = new Gson().toJson(alColumns);
             data = "{\"data\":" + data + "}";
             return data;

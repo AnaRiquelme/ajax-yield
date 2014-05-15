@@ -7,14 +7,14 @@ var objeto = function(clase, ContextPath) {
         getName: function() {
             return clase;
         },
-        getPrettyFieldNames: function() {
-            $.when(ajaxCallSync(urlDatos + '&op=getprettycolumns', 'GET', '')).done(function(data) {
+        getPrettyFieldNames: function(cpp) {
+            $.when(ajaxCallSync(urlDatos + '&op=getprettycolumns' + '&cpp=' + cpp, 'GET', '')).done(function(data) {
                 prettyFieldNames = data['data'];
             });
             return prettyFieldNames;
         },
-        getPrettyFieldNamesAcciones: function() {
-            $.when(ajaxCallSync(urlDatos + '&op=getprettycolumns', 'GET', '')).done(function(data) {
+        getPrettyFieldNamesAcciones: function(cpp) {
+            $.when(ajaxCallSync(urlDatos + '&op=getprettycolumns'+ '&cpp=' + cpp, 'GET', '')).done(function(data) {
                 prettyFieldNames = data['data'];
                 prettyFieldNames.push("acciones");
 
@@ -27,8 +27,8 @@ var objeto = function(clase, ContextPath) {
             });
             return countFields;
         },
-        getFieldNames: function() {
-            $.when(ajaxCallSync(urlDatos + '&op=getcolumns', 'GET', '')).done(function(data) {
+        getFieldNames: function(cpp) {
+            $.when(ajaxCallSync(urlDatos + '&op=getcolumns'+ '&cpp=' + cpp, 'GET', '')).done(function(data) {
                 fieldNames = data['data'];
             });
             return fieldNames;
@@ -154,10 +154,10 @@ var vista = function(objeto, ContextPath) {
         
         getPageTable: function(pag, order, ordervalue, rpp, filter, filteroperator, filtervalue, systemfilter, systemfilteroperator, systemfiltervalue, botonera) {
             var tabla = "<table class=\"table table table-striped table-condensed\">";
-            if (objeto.getPrettyFieldNamesAcciones() !== null) {
+            if (objeto.getPrettyFieldNamesAcciones(cpp) !== null) {
                 tabla += '<tr>';
 
-                $.each(objeto.getPrettyFieldNamesAcciones(), function(index, value) {
+                $.each(objeto.getPrettyFieldNamesAcciones(cpp), function(index, value) {
                     tabla += '<th>' + value;
                     if (value === "acciones") {
                         tabla += '</th>';
@@ -177,7 +177,7 @@ var vista = function(objeto, ContextPath) {
                 $.each(page, function(index, value) {
                     tabla += '<tr>';
 
-                    $.each(objeto.getFieldNames(), function(index, valor) {
+                    $.each(objeto.getFieldNames(cpp), function(index, valor) {
                         if (/id_/.test(valor)) {
                             $.when(ajaxCallSync(ContextPath + '/json?ob=' + valor.split("_")[1].replace(/[0-9]*$/, "") + '&op=get&id=' + value[valor], 'GET', '')).done(function(data) {
                                 contador = 0;

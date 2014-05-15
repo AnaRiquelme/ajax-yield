@@ -285,7 +285,7 @@
                     $('#indexContenido').empty().append(empresaView.getEmptyList());
 
                     var empresaControl = control_empresa_list('<%=request.getContextPath()%>');
-                    empresaControl.inicia(empresaView, 1, null, null, 10, null, null, null, null);
+                    empresaControl.inicia(empresaView, 1, null, null, 10, 2, null, null, null, null);
                     return false;
                 });
 

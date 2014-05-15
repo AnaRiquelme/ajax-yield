@@ -203,11 +203,11 @@ public class GenericDaoImplementation<TIPO_OBJETO> implements GenericDao<TIPO_OB
     }
 
     @Override
-    public ArrayList<String> getColumnsNames() throws Exception {
+    public ArrayList<String> getColumnsNames(int intFieldsPerPag) throws Exception {
         ArrayList<String> alColumns = null;
         try {
             oMysql.conexion(enumTipoConexion);
-            alColumns = oMysql.getColumnsName(strTabla, Conexion.getDatabaseName());
+            //alColumns = oMysql.getColumnsName(strTabla, intFieldsPerPag, Conexion.getDatabaseName());
             oMysql.desconexion();
 
         } catch (Exception e) {
