@@ -149,6 +149,9 @@ var vista = function(objeto, ContextPath) {
             vector += "</ul></div>";
             return vector;
         },
+        
+        //Trabajando en la rama cpp
+        
         getPageTable: function(pag, order, ordervalue, rpp, filter, filteroperator, filtervalue, systemfilter, systemfilteroperator, systemfiltervalue, botonera) {
             var tabla = "<table class=\"table table table-striped table-condensed\">";
             if (objeto.getPrettyFieldNamesAcciones() !== null) {
@@ -170,7 +173,7 @@ var vista = function(objeto, ContextPath) {
 
             page = objeto.getPage(pag, order, ordervalue, rpp, filter, filteroperator, filtervalue, systemfilter, systemfilteroperator, systemfiltervalue)['list'];
             if (page != 0) {
-//hola tal y tal
+
                 $.each(page, function(index, value) {
                     tabla += '<tr>';
 
