@@ -21,6 +21,7 @@ import net.daw.helper.Conexion;
 public class EmpresaGetcolumns implements GenericOperation{
      @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        //trabajando en la rama cpp
         ArrayList<String> alColumns = null;
         try {
             EmpresaDao oEmpresaDAO = new EmpresaDao(Conexion.getConection());

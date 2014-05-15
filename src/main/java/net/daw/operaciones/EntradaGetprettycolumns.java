@@ -18,6 +18,7 @@ public class EntradaGetprettycolumns implements GenericOperation {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+ 
         try {
             String data = "{\"data\": [\"id\", \"título\", \"contenido\", \"usuario\", \"hilo\", \"fecha\"]}";
             return data;
